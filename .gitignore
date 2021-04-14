@@ -30,3 +30,69 @@
 *.exe
 *.out
 *.app
+#include <iostream>
+#include<algorithm>
+#include<string>  
+
+using namespace std;
+int main()
+{
+	int t;
+	int x2,y2,x=0, y=0;
+	int d = 0, u = 0, r = 0,l = 0;
+	bool found = false,found2=false;
+	string s;
+	cin >> t;
+	for (int i = 0; i < t; i++) {
+
+		cin >> x2 >> y2;
+		cin >> s;
+		for(int j=0;j<s.size();j++){
+			 
+			 if (s[j] == 'L')
+				l--;
+			 if (s[j] == 'D')
+				 d--;
+			
+			
+			 if (s[j] == 'U')
+				u++;
+			 if (s[j] == 'R')
+				r++;
+			
+			
+			
+		}
+		 
+		if (x2 < 0) {
+			if (x2 >=l)
+				found = true;
+		}
+		else
+			if (x2 <= r)
+				found = true;
+
+
+		if (y2 < 0) {
+			if (y2 >= d)
+				found2 = true;
+		}
+		else
+			if (y2 <= u)
+				found2 = true;
+		 
+
+		if (found && found2)
+			cout << "Yes"<<endl;
+		else
+			cout << "No" << endl;
+		found = false;
+		found2 = false;
+		 d = 0, u = 0, r = 0, l = 0;
+		
+	}
+	
+
+	
+	return 0;
+}
